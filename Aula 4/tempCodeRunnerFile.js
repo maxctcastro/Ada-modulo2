@@ -1,0 +1,2 @@
+istaDaVenda);
+console.log(totais);
