@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=], initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora IMC</title>
     <link rel="stylesheet" href="style.css">
+</head>
 <body>
+    <div>
     <h1>Calculadora de Índice de Massa Corporal (IMC)</h1>
-    
-    <button onclick="Inicio()">Clique para começar</button>
+    <form>
+        <label for="nome">Informe seu Nome:</label>
+        <input type="text" id="nome" name="nome">
+      
+        <label for="peso">Informe seu Peso:</label>
+        <input type="number" id="peso" name="peso">
+      
+        <label for="altura">Informe sua Altura:</label>
+        <input type="number" id="altura" name="altura">
+    </form>
+    <button onclick="CalcularIMC()">Clique para Avaliação</button>
     <section id = "resultado">
         <p>o resultado vem aqui...</p>
     </section>
+</div>
    <script src="script.js"></script>
 </body>
 </html>

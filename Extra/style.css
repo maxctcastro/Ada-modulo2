@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin: 50px;
+    color: #333;
+}
+
+h1 {
+    color: #3498db;
+}
+
+#palavra, #tentativaRestante {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #219f56;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #3498db;
+}

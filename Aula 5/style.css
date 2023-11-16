@@ -7,6 +7,25 @@ body {
 h1 {
     color: #333;
 }
+div{
+    border: 1px solid #ccc;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px;
+}
+form {
+    max-width: 300px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
 
 button {
     background-color: #4CAF50;
@@ -16,6 +35,8 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
 }
 
 button:hover {
@@ -23,8 +44,10 @@ button:hover {
 }
 
 #resultado {
+    max-width: 300px;
     margin-top: 20px;
+    margin: auto;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
