@@ -1,29 +1,25 @@
 function CalcularIMC() {
+    
     try {
         const nome = document.getElementById('nome').value;
         if (!isNaN(nome)) {
             throw new Error("Nome inválido");
         }
         const peso = parseFloat(document.getElementById('peso').value);
-
         if (isNaN(peso) || peso === null) {
             throw new Error("Peso Inválido")
         }
-        
         if (peso === 0) {
             throw new Error("Peso Zerado")
         }
 
         const altura = parseFloat(document.getElementById('altura').value);
-        
         if (isNaN(altura) || altura === null) {
             throw new Error("Altura Inválida")
         }
-
         if (altura === 0) {
             throw new Error("Altura Zerada")
         }
-
 
         const IMC = peso / (altura ** 2);
         let res = document.getElementById('resultado')
@@ -47,6 +43,7 @@ function CalcularIMC() {
             res.innerHTML += "<p>Informe Valores Válidos</p>"
         }
     } catch (error) {
+
         console.log(error.message)
         alert("Erro: " + error.message)
     }
