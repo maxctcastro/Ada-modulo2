@@ -1,173 +1,168 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8; 
-    color: #333; 
-  }
-  
-  h1,h2 {
-    text-align: center;
-    color: #d9534f; 
-  }
-  section {
-    display: flex;
-   justify-content: center;
-  }
-  
-  /* Estilo adicional para as divs dentro da section (opcional) */
-  section div {
-    
-    margin: 0 30px; /* Adiciona margem horizontal entre as divs */
-  }
-  div {
-    margin-bottom: 30px; 
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #d9534f; 
-  }
- 
-  
-  button {
-    background-color: #d9534f; 
-    color: #fff; 
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #c9302c; 
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  strong {
-    color: #d9534f; /* Cor do texto forte em tom de vermelho */
-  }
-  
-  #checkboxVencidas,
-  #checkboxNaoVencidas {
-    margin-right: 5px;
-  }
-  
-  #checkboxVencidas + label,
-  #checkboxNaoVencidas + label {
-    color: #d9534f; 
-  }
-  .entrada {
-    margin: auto;
-    border: 2px solid #d9534f; 
-    padding: 15px; 
-    border-radius: 8px; 
-    margin-bottom: 20px; 
-    max-width: 90%;
-  }
-  
-  .entrada label {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: #d9534f; 
-  }
-  
-  .entrada input {
-    
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-  }
-  
-  .entrada button {
-    background-color: #d9534f; 
-    color: #fff; 
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    
-  }
-  
-  .entrada button:hover {
-    background-color: #c9302c; 
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #d9534f;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
 
 
-
-  .statusTarefa {
-    display: flex;
-    justify-content: center; /* Alinha os itens ao centro horizontalmente */
-    align-items: center; /* Alinha os itens ao centro verticalmente (opcional) */
-    text-align: center;
-  }
-  
-  .statusTarefa button {
-    
-    padding: 10px 20px;
-    margin: 15px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .totais {
-    text-align: center;
+section div {
+  margin: 0 30px;
   }
 
+div {
+  margin-bottom: 30px;
+}
 
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #d9534f;
+}
 
+button {
+  background-color: #d9534f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  /* Estilo para as saídas li */
-  
+button:hover {
+  background-color: #c9302c;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+  color: #d9534f;
+  /* Cor do texto forte em tom de vermelho */
+}
+
+#checkboxVencidas,
+#checkboxNaoVencidas {
+  margin-right: 5px;
+}
+
+#checkboxVencidas+label,
+#checkboxNaoVencidas+label {
+  color: #d9534f;
+}
+
+.entrada {
+  margin: auto;
+  border: 2px solid #d9534f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.entrada label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #d9534f;
+}
+
+.entrada input {
+
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.entrada button {
+  background-color: #d9534f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.entrada button:hover {
+  background-color: #c9302c;
+}
+
+.statusTarefa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.statusTarefa button {
+
+  padding: 10px 20px;
+  margin: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.totais {
+  text-align: center;
+}
+
+/* Estilo para as saídas li */
 
 .lista-tarefas li {
-  display: inline-block; 
-  width: 30%; 
-  min-width: 200px; 
-  max-width: 400px; 
-  height: auto; 
-  border: 2px solid #ff6666; 
-  padding: 15px; 
-  margin-bottom: 10px; 
-  margin-right: 10px; 
+  display: inline-block;
+  width: 30%;
+  min-width: 200px;
+  max-width: 400px;
+  height: auto;
+  border: 2px solid #ff6666;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 /* Estilo para as respostas dentro das li */
 
 .lista-tarefas li strong {
-  color: #ff6666; 
-  display: block; 
-  margin-bottom: 5px; 
+  color: #ff6666;
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* Estilo para os botões dentro das li */
 
 .lista-tarefas li button {
-  background-color: #ff6666; 
-  color: #fff; 
-  padding: 8px; 
+  background-color: #ff6666;
+  color: #fff;
+  padding: 8px;
   border: none;
   cursor: pointer;
-  border-radius: 5px; 
-  margin-right: 5px; 
+  border-radius: 5px;
+  margin-right: 5px;
 }
-
-/* Estilo para os botões dentro das li ao passar o mouse */
 
 .lista-tarefas li button:hover {
-  background-color: #cc0000; 
+  background-color: #cc0000;
 }
 
-  .tarefa-removida {
-    text-decoration: line-through; /* Adiciona uma linha através do texto para indicar remoção */
-    color: #888; /* Pode ajustar a cor conforme necessário */
-  }
+.tarefa-removida {
+  text-decoration: line-through;
+  color: #888;
+}
