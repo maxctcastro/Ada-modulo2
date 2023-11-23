@@ -2,7 +2,8 @@ let tarefas = []
 
 let contadorid = 0
 
-function gerarid(){
+// Função para gerar id com contador
+function gerarid() {
   return ++contadorid
 }
 
@@ -46,17 +47,18 @@ function adicionarTarefa() {
     }
     const vencimento = document.getElementById('vencimento').value;
 
-    //  // Obtém a data atual
-    //  const dataAtual = new Date();
+    // Obtém a data atual
 
-    //  // Converte a string de vencimento para um objeto Date
-    //  const dataVencimento = new Date(vencimento);
+    const dataAtual = new Date();
 
-    //  // Verifica se a data de vencimento é no futuro
-    //  if (dataVencimento.getTime() <= dataAtual.getTime()) {
-    //    alert("Por favor, insira uma data de vencimento válida no futuro.");
-    //    return;
-    //  }
+    // Converte a string de vencimento para um objeto Date
+    const dataVencimento = new Date(vencimento);
+
+    // Verifica se a data de vencimento é no futuro
+    if (dataVencimento.getTime() <= dataAtual.getTime()) {
+      alert("Por favor, insira uma data de vencimento válida no futuro.");
+      return;
+    }
     const id = gerarid()
 
     const tarefa = {
@@ -65,7 +67,7 @@ function adicionarTarefa() {
       descricao: descricao,
       categoria: categoria,
       vencimento: vencimento,
-      vencida: false, // Inicialmente, a tarefa não está vencida
+      vencida: false,
       removido: false
     };
 
@@ -97,15 +99,16 @@ function atualizaLista() {
 
   lista.innerHTML = '';
 
-  // Adiciona cada tarefa à lista
+
   tarefas.forEach(tarefa => {
-    // Cria um elemento de lista <li>
+
     const li = document.createElement("li");
 
 
     // Criar parágrafos para exibir informações da tarefa
+
     const idPara = document.createElement("p")
-    idPara.textContent = `Id: ${tarefa.id}` 
+    idPara.textContent = `Id: ${tarefa.id}`
     li.appendChild(idPara)
     const tituloPara = document.createElement("p");
     tituloPara.textContent = `Título: ${tarefa.titulo}`;
@@ -120,26 +123,37 @@ function atualizaLista() {
     li.appendChild(descricaoPara);
 
     const vencimentoPara = document.createElement("p");
-    vencimentoPara.textContent = `Vencimento: ${tarefa.vencimento}`;
+    if (tarefa.vencimento && tarefa.vencimento.trim() !== "") {
+      const dataVencimento = new Date(tarefa.vencimento);
+      // Verifica se a dataVencimento é um valor válido
+      if (!isNaN(dataVencimento.getTime())) {
+        const dataFormatada = `${dataVencimento.getDate() + 1}/${dataVencimento.getMonth() + 1}/${dataVencimento.getFullYear()}`;
+        vencimentoPara.textContent = `Vencimento: ${dataFormatada}`;
+      } else {
+        vencimentoPara.textContent = "Vencimento: Data inválida";
+      }
+    } else {
+      vencimentoPara.textContent = "Vencimento: ";
+    }
     li.appendChild(vencimentoPara);
 
     const vencidoPara = document.createElement("p");
     vencidoPara.textContent = `Vencida: ${tarefa.vencida ? 'Sim' : 'Não'}`;
     li.appendChild(vencidoPara);
 
-    // Adicionar botão "Editar"
+    // Adicionar botão "Editar" a cada tarefa li criada
     const botaoEditar = document.createElement("button");
     botaoEditar.textContent = "Editar Tarefa";
     botaoEditar.addEventListener("click", () => editarTarefa(tarefa.id));
     li.appendChild(botaoEditar);
 
-    // Adicionar botão "Remover"
+    // Adicionar botão "Remover" a cada tarefa li criada
     const botaoRemover = document.createElement("button");
     botaoRemover.textContent = "Remover Tarefa";
     botaoRemover.addEventListener("click", () => removerTarefa(tarefa.id));
     li.appendChild(botaoRemover);
 
-    // Adicionar botão "Recuperar"
+    // Adicionar botão "Recuperar" a cada tarefa li criada
 
     const botaoRecuperar = document.createElement("button");
     botaoRecuperar.textContent = "Recuperar Tarefa";
@@ -149,7 +163,7 @@ function atualizaLista() {
     if (tarefa.removido) {
       li.classList.add('tarefa-removida');
     }
-
+    // Adicionar a tarfea li criado a lista de tarefas"
     lista.appendChild(li);
   });
 }
@@ -157,7 +171,9 @@ function atualizaLista() {
 // Função para editar uma tarefa
 
 function editarTarefa(tarefaId) {
+
   const tarefa = tarefas.find(t => t.id === tarefaId);
+  // cria uma cópia rasa dessa tarefa, armazenando-a na variável tarefaEditada
   tarefaEditada = { ...tarefa };
 
   document.getElementById("titulo").value = tarefa.titulo;
@@ -197,7 +213,7 @@ function salvarEdicao() {
   atualizarTotais();
 }
 
-// FUNÇÃO REMOVER TAREFA
+// Função Remover Tarefa
 
 function removerTarefa(tarefaId) {
   // Encontra a tarefa pelo ID
@@ -238,7 +254,7 @@ function recuperarTarefaRemovida(tarefaId) {
     const tarefaRemovida = tarefas.find(tarefa => tarefa.id === tarefaId && tarefa.removido);
 
     if (tarefaRemovida) {
-      // Alterar o estado removido da tarefa para false
+      // Alterar o estado removido da tarefa para false para sair do status removida
       tarefaRemovida.removido = false;
 
       // Exibir uma mensagem ou fazer algo com a tarefa recuperada (por exemplo, mostrar um alert)
@@ -314,13 +330,14 @@ function listarTarefasPorCategoria() {
   }
 }
 
-//Esta função recebe um parâmetro status, que pode ser 'vencidas', 'naoVencidas' ou qualquer outro valor. Dentro da função, há uma verificação condicional usando if-else para determinar que tipo de filtro aplicar nas tarefas. Se o status for 'vencidas', a função retorna apenas as tarefas que têm a propriedade vencida como verdadeira. Se o status for 'naoVencidas', a função retorna as tarefas que têm a propriedade vencida como falsa. Se o status não for nenhum dos anteriores, a função retorna todas as tarefas.
-
+// Função para filtrar as tarefas em vencidas ou não vencidas de acordo com o parâmetro status.
 function filtrarTarefas(status) {
+  const dataAtual = new Date();
+
   if (status === 'vencidas') {
-    return tarefas.filter(tarefa => tarefa.vencida);
+    return tarefas.filter(tarefa => tarefa.vencida || new Date(tarefa.vencimento) < dataAtual);
   } else if (status === 'naoVencidas') {
-    return tarefas.filter(tarefa => !tarefa.vencida);
+    return tarefas.filter(tarefa => !tarefa.vencida && new Date(tarefa.vencimento) >= dataAtual);
   } else {
     return tarefas;
   }
@@ -342,7 +359,7 @@ function mostrarTarefas(status) {
 function atualizarStatusVencimento() {
   const dataAtual = new Date();
 
-  
+
   tarefas.forEach(tarefa => {
     // Considere vencida se a data atual for maior que a data de vencimento
     tarefa.vencida = dataAtual > new Date(tarefa.vencimento);
